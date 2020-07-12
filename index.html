@@ -1,0 +1,334 @@
+<html>
+  <head>
+
+    <title>Movie Mania</title>
+    
+    <link rel = "icon" href =  "https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/a4/79/09/a47909c1-24d6-0a66-58d1-8867829502d8/source/512x512bb.jpg"  type = "image/x-icon"> 
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+   <style>
+        #t{
+          padding: 50px 50px;
+         }
+        a{
+          font-size: x-large; 
+        }
+        .mySlides {
+          text-align: center;
+          height: 200px;
+        }
+        .mySlides img {
+          width: 90%;
+          max-height:280%;
+          object-fit: fill;
+        }   
+        form{
+         width: 500px;
+          height: 100px;
+          border-left: 4px solid #F57350;
+          border-right: 4px solid #F57350;
+          border-bottom: 4px solid #F57350;
+          border-top: 4px solid #F57350;
+          padding: 20px 70px ;
+          margin: 50px auto;
+          background-position: 0 0, 0 100% ;
+          background-repeat: no-repeat;
+        }
+
+        #Atonement,#Titanic,#Arrival,#Frozen{
+          position: relative;
+          width: 300px;
+          height: 300px;
+          float: left;;
+          margin-right: 30px;
+        }
+
+        #Atonement div, #Titanic div, #Arrival div, #Frozen div {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background: black;
+          color: white;
+          margin-bottom: 5px;
+          font-family: sans-serif;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transition: visibility 0s, opacity 0.5s linear; 
+          transition: visibility 0s, opacity 0.5s linear;
+        }
+
+        #Atonement:hover{
+          cursor: pointer;
+        }
+
+        #Titanic:hover{
+          cursor: pointer;
+        }
+
+        #Arrival:hover{
+          cursor: pointer;
+        }
+
+        #Frozen:hover{
+         cursor: pointer;
+        }
+
+        #Atonement:hover div, #Titanic:hover div , #Arrival:hover div, #Frozen:hover div{
+          width: 150px;
+          padding:  8px 15px;
+          visibility: visible;
+          opacity: 0.9; 
+        }
+
+        #btn{
+          width: 120px;
+          height: 30px;
+          background-color:palegoldenrod;
+          text-align:center;
+          margin-left: 40%;
+          margin-top: 5%;
+        }
+
+        #btn:hover{
+          opacity: 0.7;
+           background-color:gold;
+        }
+
+      </style> 
+  </head>
+
+
+<body>
+<div style="background-image: url(https://i.pinimg.com/564x/36/f0/94/36f0949c623b61a235fd6645fa507236.jpg);">
+<table><tr >
+<td ><img src="https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/a4/79/09/a47909c1-24d6-0a66-58d1-8867829502d8/source/512x512bb.jpg" width="120", height="120", alt="logo"></td>
+<td><p id="t" style=" color: #000; font-size: 90;font-family: fantasy; color:red;">Movie Mania</p></td>
+</tr></table>
+</div>
+
+<hr width="100%" size="5" color="#000" align="center">
+<div style="background-color: rgb(224, 245, 185); text-align:center;">
+&nbsp; &nbsp;<a href="#home">Home</a>   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ <a  href="#movies"> Movies</a> &nbsp; &nbsp; &nbsp; &nbsp;
+    <a   href="#contribute">Contribute</a>    
+
+    <hr width="100%" size="5" color="#000" align="center">
+</div>
+<div id="home">
+
+  <h2 style="font-size: 100; font-family: fantasy; text-align: center;"> Home </h2>
+    <div class="slideshow-container">
+
+        
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img src="https://i.pinimg.com/564x/68/71/0a/68710aa0776882c5ac80e57674d5149e.jpg" style="width:80px height:80px;">
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 5</div>
+          <img src="https://qph.fs.quoracdn.net/main-qimg-b1864a40cb148b514ab90ec95d3d4d4a" style="width:80% height: 80px;">
+        </div>
+
+        <div class="mySlides fade">
+         <div class="numbertext">3 / 5</div>
+         <img src="https://www.northridgehc.com/wordpress/wp-content/uploads/2015/03/favorite-movie.jpg" style="width:80% height: 80px;">
+       </div>
+
+        </div>
+         <div class="mySlides fade">
+          <div class="numbertext">4 / 5</div>
+          <img src="https://wtop.com/wp-content/uploads/2018/02/movie-romances-collage.jpg" style="width:80% height: 80px;">
+        </div>
+
+    </div>
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 5</div>
+        <img src="share.png" style="width:80% height: 80px;">
+        </div>
+      
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+          
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
+      </div>
+      
+    <script type="text/javascript">
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+    
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1} 
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block"; 
+        dots[slideIndex-1].className += " active";
+      }
+    </script>
+      
+    <script type="text/javascript">
+      
+      var slideIndex = 0;
+      showSlides();
+      
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none"; 
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(showSlides, 3000); 
+      }
+    </script>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<hr width="100%"  size="5" color="#000" align="center">
+
+
+<div  id="movies" style="background-color: antiquewhite; overflow: hidden; height: 120%;" >
+  
+
+    <h2 style="font-size: 100; font-family: fantasy; text-align: center;"> Movies </h2>
+ 
+    <div id = "Titanic"  >
+        <h2>{{results.Title}}</h2>
+ 
+        <img :src="results.Poster" :id= results.Title><br>
+        <div>  <b>Genre : </b> {{results.Genre}}
+          <br><b>Year :</b>{{results.Year}} <br> <b>Summary : </b>{{results.Plot}}  </div>
+    </div> 
+
+
+    <div id ="Atonement">
+        <h2>{{results1.Title}}</h2>
+         
+        <img :src="results1.Poster" :id= results1.Title ><br>
+        <div> 
+          <b>Genre : </b> {{results1.Genre}}
+          <br><b>Year :</b>{{results1.Year}} <br> <b>Summary : </b>{{results1.Plot}} 
+        </div>
+       
+    </div> 
+
+    <div :id = results2.Title >
+      <h2>{{results2.Title}}</h2>
+       
+      <img :src="results2.Poster" :id= results2.Title><br>
+      <div>
+        <b>Genre : </b> {{results2.Genre}}
+          <br><b>Year :</b>{{results2.Year}} <br> <b>Summary : </b>{{results2.Plot}} 
+      </div>
+      
+  </div> 
+
+  <div :id = results3.Title>
+    <h2>{{results3.Title}}</h2>
+     
+    <img :src="results3.Poster" :id= results3.Title><br>
+    <div><b>Genre : </b> {{results3.Genre}}
+      <br><b>Year :</b>{{results3.Year}} <br> <b>Summary : </b>{{results3.Plot}} </div>
+    
+</div> 
+  
+</div>
+<script src="C:/Credence/vue.js"></script>
+<div id = "movies_e" style="background-color: antiquewhite;"></div>
+
+<br><hr width="100%" size="5" color="#000" align="center">
+
+
+<div id="contribute">
+
+  <h2 style="font-size: 100; font-family: fantasy; text-align: center;"> Contribute </h2>
+
+  <form>
+    <strong>
+      Search for your favourite movie:
+    </strong>
+    <input onkeyup="getAnswer(document.getElementById('qbox').value)" id = "qbox" style="width: 7cm; height: 1cm; border-radius: 2px; text-align: center;">
+    <input id ="btn" type ="button"  value="Add Movie" onclick="addFile(document.getElementById('qbox').value);">
+  </form>
+  <div id ="answer" style="text-align: center; background-color: lightcyan; border: 2px solid #000;"></div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var data;
+  function getAnswer(q){
+    $.get("https://www.omdbapi.com/?t="+q+"&apikey=e0620bd4" , function(rawdata){
+
+      var rawstring = JSON.stringify(rawdata);
+      data = JSON.parse(rawstring)
+      var title = data.Title;
+      var year = data.Year;
+      var type = data.Type;
+      var plot = data.Plot;
+      var poster = data.Poster;
+      document.getElementById('answer').innerHTML = "<h1>"+title+"</h1><br> <img src ='"+poster+"' /> <br><p> <h2><u>Year Released</u></h2><h4>"+year+"</h4></p><br> <h2><u>Summary</u></h2><h4>"+plot+ "</h4><br>";
+    });
+  }
+  </script>
+  <script>
+  var fileId = 0; // used by the addFile() function to keep track of IDs
+   function addFile(q1) {
+
+    $.get("https://www.omdbapi.com/?t="+q1+"&apikey=e0620bd4" , function(rawdata){
+
+      var rawstring = JSON.stringify(rawdata);
+      data = JSON.parse(rawstring)
+      var title = data.Title;
+      var year = data.Year;
+      var genre = data.Genre;
+      var plot = data.Plot;
+      var poster = data.Poster;
+
+      fileId++; 
+      var html = '<p><br><h1>'+title+'</h1>'+year+' | '+genre+'</p> <img  src= '+poster+'/> ';
+    addElement('movies_e', 'p', 'file-' + fileId, html);
+  });
+  }
+
+function addElement(parentId, elementTag, elementId, html) {
+    // Adds an element to the document
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+</script>
+
+</body>
+
+</html>
