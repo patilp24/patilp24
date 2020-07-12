@@ -5,10 +5,10 @@
     const text1 = 'Atonement'
     const text2 ="Arrival"
     const text3 = "Frozen"
-    const url = 'http://www.omdbapi.com/?t=' + text + '&i='+ imd+'&apikey=' + apik 
-    const url1 = 'http://www.omdbapi.com/?t=' + text1 + '&apikey=' + apik 
-    const url2 = 'http://www.omdbapi.com/?t=' + text2 + '&apikey=' + apik 
-    const url3 = 'http://www.omdbapi.com/?t=' + text3 + '&apikey=' + apik 
+    const url = 'https://www.omdbapi.com/?t=' + text + '&i='+ imd+'&apikey=' + apik 
+    const url1 = 'https://www.omdbapi.com/?t=' + text1 + '&apikey=' + apik 
+    const url2 = 'https://www.omdbapi.com/?t=' + text2 + '&apikey=' + apik 
+    const url3 = 'https://www.omdbapi.com/?t=' + text3 + '&apikey=' + apik 
 
     const m =  new Vue({
 
